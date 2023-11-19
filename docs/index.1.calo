@@ -73,6 +73,9 @@ Ejecutable como documento HTML5
 
 asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio" con plantilla {
   <div class="PaginaDeInicio Component">
+    <div>
+      Back to <a href="https://github.com/allnulled/ui-script-language">Github project</a>.
+    </div>
     <h5>UIScript | Tester del lenguaje</h5>
     <div>
       <textarea ref="entrada_del_tester" v-model="entradaDelTester"></textarea>

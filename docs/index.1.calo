@@ -67,23 +67,61 @@ Ejecutable como documento HTML5
       .CodeMirror.cm-s-default{
         font-size: 9px;
       }
+      .normal {
+        font-family: Arial;
+        font-size: 10px;
+      }
+      table.tabla_de_titulo {
+        width: 100%;
+      }
+      table.tabla_de_titulo td {
+
+      }
+      td.celda_de_titulo {
+        width: 100%;
+      }
+      .display_block {
+        display: block;
+      }
+      .display_none {
+        display: none;
+      }
     </style>
 </head>
 <body><div id="app"></div></body>.
 
 asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio" con plantilla {
   <div class="PaginaDeInicio Component">
-    <div>
+    <div class="normal">
       Back to <a href="https://github.com/allnulled/ui-script-language">Github project</a>.
     </div>
-    <h5>UIScript | Tester del lenguaje</h5>
-    <div>
-      <textarea ref="entrada_del_tester" v-model="entradaDelTester"></textarea>
+    <h5>
+      <table class="tabla_de_titulo">
+        <tr>
+          <td class="celda_de_titulo">
+            <span>UIScript | Tester del lenguaje</span>
+          </td>
+          <td>
+            <span>
+              <button v-on:click="alternarModo">{{ modo === 'codigo' ? 'Vista' : 'Código' }}</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </h5>
+    <div :class="modo === 'codigo' ? 'display_block' : 'display_none'">
+      <div>
+        <textarea ref="entrada_del_tester" v-model="entradaDelTester"></textarea>
+      </div>
       <button style="width: 100%;" v-on:click="validarSintaxis">Validar</button>
-      <textarea ref="salida_del_tester" v-model="salidaDelTester" disabled="true"></textarea>
       <div v-if="error" v-on:click="limpiarError">
         {{ error }}
       </div>
+      <div>
+        <textarea ref="salida_del_tester" v-model="salidaDelTester" disabled="true"></textarea>
+      </div>
+    </div>
+    <div :class="modo === 'vista' ? 'display_block' : 'display_none'">
       <div v-if="salidaDelTester">
         <xtester></xtester>
       </div>
@@ -99,40 +137,60 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
     }.
     método data donde {
       retorno {
+        modo: undefined, ### "codigo", "vista"
         idTesterTimeout: undefined,
         entradaDelTester: `
+!div {
 
-!xpage [title="Página de login"] {
- !div {
-  !xwindow {
-   !xwindowtitle {{ Título de la ventana }}
-   !xwindowbody {
-    !xtitle {{ Título de página }}
-    !xsubtitle {{ Subttulo de página }}
-    !xbreadcrumb {
-     !xlink {{ Ruta }}
-     !span {{ » }}
-     !xlink {{ a }}
-     !span {{ » }}
-     !xlink {{ subdireccion }}
-    }
-    !xpanel {
-     !xform {
-      !xformfield {{ Usuario: }}
-      !xformfield {{ Contraseña: }}
+ !xpage [title="Página de login"] {
+  !div {
+   !xwindow {
+    !xwindowtitle {{ Título de la ventana }}
+    !xwindowbody {
+     !xtitle {{ Título de página }}
+     !xsubtitle {{ Subttulo de página }}
+     !xbreadcrumb {
+      !xlink {{ Ruta }}
+      !span {{ » }}
+      !xlink {{ a }}
+      !span {{ » }}
+      !xlink {{ subdireccion }}
+     }
+     !xpanel {
+      !xform {
+       !xformfield {{ Usuario: }}
+       !xformfield {{ Contraseña: }}
+      }
+     }
+     !xlayoutnopaddingtop [style="text-align: right;"] {
+      !xbutton {{ Entrar }}
      }
     }
-    !xlayoutnopaddingtop [style="text-align: right;"] {
-     !xbutton {{ Entrar }}
+    !xwindowfooter {
+     !xwindowfooteritem {{ Pie de ventana }}
     }
-   }
-   !xwindowfooter {
-    !xwindowfooteritem {{ Pie de ventana }}
    }
   }
  }
+
+ !xpage [title="Página de crear usuario"] {
+  !xwindow {
+   !xwindowtitle {{ Título de crear usuario }}
+   !xwindowbody {
+    !xtitle {{ Crear usuario }}
+    !xform {
+     !xformfield {{ Nombre de usuario: }}
+     !xformfield {{ Contraseña de usuario: }}
+     !xformfield {{ Correo de usuario: }}
+    }
+   }
+   !xwindowfooter {
+    !xwindowfooteritem {{ Creando usuario. }}
+   }
+  }
+ }
+
 }
- 
  `,
         entradaDelTesterEditor: undefined,
         salidaDelTester: "",
@@ -141,6 +199,13 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
       }.
     }.
     propiedad methods como {
+      método alternarModo donde {
+        si this.modo es igual que "codigo" {
+          asigno this.modo como "vista".
+        } pero si this.modo es igual que "vista" {
+          asigno this.modo como "codigo".
+        }.
+      }.
       método limpiarError donde {
         asigno this.error como undefined.
         hago this.$forceUpdate(true).
@@ -172,13 +237,16 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
     propiedad watch como {}.
     método beforeMount donde {}.
     método mounted donde {
-      asigno this.entradaDelTesterEditor como CodeMirror.fromTextArea(this.$refs.entrada_del_tester, {
-        lineNumbers: true
-      }).
-      asigno this.salidaDelTesterEditor como CodeMirror.fromTextArea(this.$refs.salida_del_tester, {
-        lineNumbers: true,
-        readOnly: "nocursor"
-      }).
+      asigno this.modo como "codigo".
+      hago setTimeout(una lambda donde {
+        asigno this.entradaDelTesterEditor como CodeMirror.fromTextArea(this.$refs.entrada_del_tester, {
+          lineNumbers: true
+        }).
+        asigno this.salidaDelTesterEditor como CodeMirror.fromTextArea(this.$refs.salida_del_tester, {
+          lineNumbers: true,
+          readOnly: "nocursor"
+        }).
+      }, 0).
     }.
   }.
 }.

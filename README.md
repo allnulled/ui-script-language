@@ -103,3 +103,8 @@ Vue.component("CustomComponent", {
 ## Notes
 
 The language is just an instrument to save a set of web components based on Vue.js. So, please, take into account that the most important thing are the components, while the language is just a way to put them all together, and present them in a nice and friendlier way. But it is not that important, the main point are the components.
+
+## Philosophy
+
+The `ui-script-language` is conceived to make user interface prototyping fast and funny. But it's just HTML under the hood, so it is to be remarked that the components are the most interesting part of the project.
+

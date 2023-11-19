@@ -28,6 +28,9 @@ Ejecutable como documento HTML5
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlayout/xlayout.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlayoutnopaddingtop/xlayoutnopaddingtop.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindowfooteritem/xwindowfooteritem.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtable/xtable.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtablerow/xtablerow.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtablecell/xtablecell.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtester/xtester.css" />
 
     <script src="lib/calo/calo.js"></script>
@@ -53,6 +56,9 @@ Ejecutable como documento HTML5
     <script src="lib/ui-script/ui-script-components/xlayout/xlayout.js"></script>
     <script src="lib/ui-script/ui-script-components/xlayoutnopaddingtop/xlayoutnopaddingtop.js"></script>
     <script src="lib/ui-script/ui-script-components/xwindowfooteritem/xwindowfooteritem.js"></script>
+    <script src="lib/ui-script/ui-script-components/xtable/xtable.js"></script>
+    <script src="lib/ui-script/ui-script-components/xtablerow/xtablerow.js"></script>
+    <script src="lib/ui-script/ui-script-components/xtablecell/xtablecell.js"></script>
     <script src="lib/ui-script/ui-script-components/xtester/xtester.js"></script>
     
     <style>
@@ -140,6 +146,7 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
         modo: undefined, ### "codigo", "vista"
         idTesterTimeout: undefined,
         entradaDelTester: `
+
 !div {
 
  !xpage [title="Página de login"] {
@@ -183,6 +190,9 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
      !xformfield {{ Contraseña de usuario: }}
      !xformfield {{ Correo de usuario: }}
     }
+    !xlayoutnopaddingtop [style="text-align: right;"] {
+     !xbutton {{ Crear }}
+    }
    }
    !xwindowfooter {
     !xwindowfooteritem {{ Creando usuario. }}
@@ -191,6 +201,7 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
  }
 
 }
+ 
  `,
         entradaDelTesterEditor: undefined,
         salidaDelTester: "",

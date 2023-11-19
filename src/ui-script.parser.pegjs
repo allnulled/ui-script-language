@@ -1,5 +1,7 @@
 {
-	const reducir_a_html = function({ tag, atributos, contenido }) {
+	const reducir_sentencia_a_html = function(ast) {
+		console.log("ast");
+		const { tag, atributos, contenido } = ast;
 		let html = "";
 		html += "<";
 		html += tag;
@@ -18,7 +20,7 @@
 			if(Array.isArray(contenido)) {
 				for(let i=0; i<contenido.length; i++) {
 					const item = contenido[i];
-					html += reducir_a_html(item);
+					html += reducir_sentencia_a_html(item);
 				}
 			} else if(typeof contenido === "string") {
 				html += contenido;
@@ -29,7 +31,10 @@
 		html += tag;
 		html += ">";
 		return html;
-	}
+	};
+	const reducir_sentencias = function(sentencias) {
+		return sentencias.map(item => reducir_sentencia_a_html(item)).join("\n");
+	};
 }
 
 Language = Sentencias
@@ -38,7 +43,7 @@ Sentencias =
 	token0:_*
 	sentencias:Sentencia*
     token1:_*
-    	{ return sentencias }
+    	{ return reducir_sentencias(sentencias) }
 
 Sentencia = Tag
 
@@ -72,18 +77,18 @@ Texto_entre_comillas = Texto_entre_comillas_simples / Texto_entre_comillas_doble
 
 Texto_entre_comillas_simples =
 	token1:("'")
-    texto:(!("'")("\\'"/'\\\\'/.))*
+    texto:((!("'"))('\\\\'/"\\'"/.))*
     token2:("'")
     	{ return text() }
 
 Texto_entre_comillas_dobles =
 	token1:('"')
-    texto:(!('"')('\\"'/'\\\\'/.))*
+    texto:((!('"'))('\\\\'/'\\"'/.))*
     token2:('"')
     	{ return text() }
 
 Contenido = 
-	contenido:(Contenido_1 / Contenido_2)
+	contenido:(Contenido_2 / Contenido_1)
     	{ return contenido }
 
 Contenido_2 =
@@ -95,7 +100,7 @@ Contenido_2 =
 
 Negacion_de_cierre_de_dobles_corchetes_curvados =
 	contenido:(!("}}")("\\}}"/.))+ 
-		{ return text() }
+		{ return text().trim() }
 
 Contenido_1 =
 	token0:_*

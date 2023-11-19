@@ -12,10 +12,9 @@
 }
 .Component.xpage > .container {
     display: inline-block;
-    border: 1px solid #333;
+    border: 1px dashed #333;
     min-width: 100px;
     min-height: 200px;
-    
     max-height: 400px;
     overflow: scroll;
     resize: both;

@@ -12,6 +12,7 @@ Ejecutable como documento HTML5
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-styles.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xpage/xpage.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlink/xlink.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xform/xform.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xformfield/xformfield.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xjumbotron/xjumbotron.css" />
@@ -35,6 +36,7 @@ Ejecutable como documento HTML5
     <script src="lib/ui-script/ui-script-parser.js"></script>
     <script src="lib/ui-script/ui-script-api.js"></script>
     <script src="lib/ui-script/ui-script-components/xpage/xpage.js"></script>
+    <script src="lib/ui-script/ui-script-components/xlink/xlink.js"></script>
     <script src="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.js"></script>
     <script src="lib/ui-script/ui-script-components/xform/xform.js"></script>
     <script src="lib/ui-script/ui-script-components/xformfield/xformfield.js"></script>
@@ -96,6 +98,7 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
       retorno {
         idTesterTimeout: undefined,
         entradaDelTester: `
+
 !xpage [title="Página de login"] {
  !div {
   !xwindow {
@@ -103,7 +106,13 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
    !xwindowbody {
     !xtitle {{ Título de página }}
     !xsubtitle {{ Subttulo de página }}
-    !xbreadcrumb {{ Ruta » a » subdireccion }}
+    !xbreadcrumb {
+     !xlink {{ Ruta }}
+     !span {{ » }}
+     !xlink {{ a }}
+     !span {{ » }}
+     !xlink {{ subdireccion }}
+    }
     !xpanel {
      !xform {
       !xformfield {{ Usuario: }}
@@ -120,6 +129,7 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
   }
  }
 }
+ 
  `,
         entradaDelTesterEditor: undefined,
         salidaDelTester: "",
@@ -142,9 +152,15 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
         asigno this.salidaDelTester como Vue.component("xtester", {
           template: salidaDelParser
         }).
+        imprimo "uiScriptContenido".
+        imprimo uiScriptContenido.
+        imprimo "salidaDelParser".
+        imprimo salidaDelParser.
         creo salidaDelParserBonita como this.root.$window.html_beautify(salidaDelParser, {
           indent_size: 2
         }).
+        imprimo "salidaDelParserBonita".
+        imprimo salidaDelParserBonita.
         hago this.salidaDelTesterEditor.setValue(salidaDelParserBonita).
       } en errores {
         hago this.gestionarError(error).

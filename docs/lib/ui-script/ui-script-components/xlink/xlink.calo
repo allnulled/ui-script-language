@@ -1,10 +1,15 @@
-asigno UIScriptComponents.xtester como un componente vue2 con nombre "xtester" con plantilla {
-  <div class="Component xtester">
+asigno UIScriptComponents.xlink como un componente vue2 con nombre "xlink" con plantilla {
+  <a class="Component xlink" :href="href">
     <slot></slot>
-  </div>
+  </a>
 } con lógica {
   retorno {
-    propiedad props como {}.
+    propiedad props como {
+      propiedad href como {
+        propiedad type como String.
+        propiedad default como "javascript:void(0)".
+      }.
+    }.
     método data donde {
       retorno {}.
     }.

@@ -15,6 +15,7 @@ First, you import the CSS files for general and per-component styling:
 
 ```html
 <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-styles.css" />
+<link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xpage/xpage.css" />
 <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.css" />
 <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xform/xform.css" />
 <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xformfield/xformfield.css" />
@@ -38,6 +39,7 @@ Second, you import the JS files for general and per-component logic:
 
 ```html
 <script src="lib/ui-script/ui-script-api.js"></script>
+<script src="lib/ui-script/ui-script-components/xpage/xpage.js"></script>
 <script src="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.js"></script>
 <script src="lib/ui-script/ui-script-components/xform/xform.js"></script>
 <script src="lib/ui-script/ui-script-components/xformfield/xformfield.js"></script>

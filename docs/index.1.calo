@@ -11,6 +11,7 @@ Ejecutable como documento HTML5
     <link rel="stylesheet" type="text/css" href="lib/codemirror/codemirror.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-styles.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xpage/xpage.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xform/xform.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xformfield/xformfield.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xjumbotron/xjumbotron.css" />
@@ -33,6 +34,7 @@ Ejecutable como documento HTML5
     <script src="lib/beautify/beautify-html.js"></script>
     <script src="lib/ui-script/ui-script-parser.js"></script>
     <script src="lib/ui-script/ui-script-api.js"></script>
+    <script src="lib/ui-script/ui-script-components/xpage/xpage.js"></script>
     <script src="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.js"></script>
     <script src="lib/ui-script/ui-script-components/xform/xform.js"></script>
     <script src="lib/ui-script/ui-script-components/xformfield/xformfield.js"></script>
@@ -94,29 +96,31 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
       retorno {
         idTesterTimeout: undefined,
         entradaDelTester: `
-!div {
- !xwindow {
-  !xwindowtitle {{ Título de la ventana }}
-  !xwindowbody {
-   !xtitle {{ Título de página }}
-   !xsubtitle {{ Subttulo de página }}
-   !xbreadcrumb {{ Ruta » a » subdireccion }}
-   !xpanel {
-    !xform {
-     !xformfield {{ Usuario: }}
-     !xformfield {{ Contraseña: }}
+!xpage [title="Página de login"] {
+ !div {
+  !xwindow {
+   !xwindowtitle {{ Título de la ventana }}
+   !xwindowbody {
+    !xtitle {{ Título de página }}
+    !xsubtitle {{ Subttulo de página }}
+    !xbreadcrumb {{ Ruta » a » subdireccion }}
+    !xpanel {
+     !xform {
+      !xformfield {{ Usuario: }}
+      !xformfield {{ Contraseña: }}
+     }
+    }
+    !xlayoutnopaddingtop [style="text-align: right;"] {
+     !xbutton {{ Entrar }}
     }
    }
-   !xlayoutnopaddingtop [style="text-align: right;"] {
-    !xbutton {{ Entrar }}
+   !xwindowfooter {
+    !xwindowfooteritem {{ Pie de ventana }}
    }
-  }
-  !xwindowfooter {
-   !xwindowfooteritem {{ Pie de ventana }}
   }
  }
 }
-`,
+ `,
         entradaDelTesterEditor: undefined,
         salidaDelTester: "",
         salidaDelTesterEditor: undefined,

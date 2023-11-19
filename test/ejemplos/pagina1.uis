@@ -1,0 +1,7 @@
+!titulo {{ Título de página }}
+!breadcrumb
+!formulario {
+    !campo_de_formulario {{ Nombre de usuario }}
+    !campo_de_formulario {{ Apellido de usuario }}
+    !campo_de_formulario {{ DNI de usuario }}
+}

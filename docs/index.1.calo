@@ -1,0 +1,193 @@
+Ejecutable como documento HTML5
+    con autor allnulled
+    con nombre index
+    con versión 1
+<head>
+    <title>🌐 UIScript | Tester del lenguaje</title>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" type="text/css" href="lib/win7/win7.scoped.2.css" />
+    <link rel="stylesheet" type="text/css" href="lib/codemirror/codemirror.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-styles.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xform/xform.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xformfield/xformfield.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xjumbotron/xjumbotron.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlabel/xlabel.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xsubtitle/xsubtitle.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtitle/xtitle.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindow/xwindow.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindowtitle/xwindowtitle.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindowbody/xwindowbody.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindowfooter/xwindowfooter.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xpanel/xpanel.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xbutton/xbutton.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlayout/xlayout.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlayoutnopaddingtop/xlayoutnopaddingtop.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindowfooteritem/xwindowfooteritem.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtester/xtester.css" />
+
+    <script src="lib/calo/calo.js"></script>
+    <script src="lib/codemirror/codemirror.js"></script>
+    <script src="lib/beautify/beautify-html.js"></script>
+    <script src="lib/ui-script/ui-script-parser.js"></script>
+    <script src="lib/ui-script/ui-script-api.js"></script>
+    <script src="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.js"></script>
+    <script src="lib/ui-script/ui-script-components/xform/xform.js"></script>
+    <script src="lib/ui-script/ui-script-components/xformfield/xformfield.js"></script>
+    <script src="lib/ui-script/ui-script-components/xjumbotron/xjumbotron.js"></script>
+    <script src="lib/ui-script/ui-script-components/xlabel/xlabel.js"></script>
+    <script src="lib/ui-script/ui-script-components/xsubtitle/xsubtitle.js"></script>
+    <script src="lib/ui-script/ui-script-components/xtitle/xtitle.js"></script>
+    <script src="lib/ui-script/ui-script-components/xwindow/xwindow.js"></script>
+    <script src="lib/ui-script/ui-script-components/xwindowtitle/xwindowtitle.js"></script>
+    <script src="lib/ui-script/ui-script-components/xwindowbody/xwindowbody.js"></script>
+    <script src="lib/ui-script/ui-script-components/xwindowfooter/xwindowfooter.js"></script>
+    <script src="lib/ui-script/ui-script-components/xpanel/xpanel.js"></script>
+    <script src="lib/ui-script/ui-script-components/xbutton/xbutton.js"></script>
+    <script src="lib/ui-script/ui-script-components/xlayout/xlayout.js"></script>
+    <script src="lib/ui-script/ui-script-components/xlayoutnopaddingtop/xlayoutnopaddingtop.js"></script>
+    <script src="lib/ui-script/ui-script-components/xwindowfooteritem/xwindowfooteritem.js"></script>
+    <script src="lib/ui-script/ui-script-components/xtester/xtester.js"></script>
+    
+    <style>
+      h5 {
+        margin: 0;
+        padding: 12px;
+        background-color: #333;
+        color: white;
+        font-size: 10px;
+        font-family: Arial;
+      }
+      .CodeMirror.cm-s-default{
+        font-size: 9px;
+      }
+    </style>
+</head>
+<body><div id="app"></div></body>.
+
+asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio" con plantilla {
+  <div class="PaginaDeInicio Component">
+    <h5>UIScript | Tester del lenguaje</h5>
+    <div>
+      <textarea ref="entrada_del_tester" v-model="entradaDelTester"></textarea>
+      <button style="width: 100%;" v-on:click="validarSintaxis">Validar</button>
+      <textarea ref="salida_del_tester" v-model="salidaDelTester" disabled="true"></textarea>
+      <div v-if="error" v-on:click="limpiarError">
+        {{ error }}
+      </div>
+      <div v-if="salidaDelTester">
+        <xtester></xtester>
+      </div>
+    </div>
+  </div>
+} con lógica {
+  retorno {
+    propiedad props como {
+      propiedad root como {
+        propiedad type como Object.
+        propiedad required como true.
+      }.
+    }.
+    método data donde {
+      retorno {
+        idTesterTimeout: undefined,
+        entradaDelTester: `
+!div {
+ !xwindow {
+  !xwindowtitle {{ Título de la ventana }}
+  !xwindowbody {
+   !xtitle {{ Título de página }}
+   !xsubtitle {{ Subttulo de página }}
+   !xbreadcrumb {{ Ruta » a » subdireccion }}
+   !xpanel {
+    !xform {
+     !xformfield {{ Usuario: }}
+     !xformfield {{ Contraseña: }}
+    }
+   }
+   !xlayoutnopaddingtop [style="text-align: right;"] {
+    !xbutton {{ Entrar }}
+   }
+  }
+  !xwindowfooter {
+   !xwindowfooteritem {{ Pie de ventana }}
+  }
+ }
+}
+`,
+        entradaDelTesterEditor: undefined,
+        salidaDelTester: "",
+        salidaDelTesterEditor: undefined,
+        error: undefined
+      }.
+    }.
+    propiedad methods como {
+      método limpiarError donde {
+        asigno this.error como undefined.
+        hago this.$forceUpdate(true).
+      }.
+      método gestionarError con (error) donde {
+        asigno this.error como error.
+        hago this.$forceUpdate(true).
+      }.
+      método validarSintaxis donde {
+        creo uiScriptContenido como this.entradaDelTesterEditor.getValue().
+        creo salidaDelParser como this.root.$window.UIScriptParser.parse(uiScriptContenido).
+        asigno this.salidaDelTester como Vue.component("xtester", {
+          template: salidaDelParser
+        }).
+        creo salidaDelParserBonita como this.root.$window.html_beautify(salidaDelParser, {
+          indent_size: 2
+        }).
+        hago this.salidaDelTesterEditor.setValue(salidaDelParserBonita).
+      } en errores {
+        hago this.gestionarError(error).
+      }.
+    }.
+    propiedad watch como {}.
+    método beforeMount donde {}.
+    método mounted donde {
+      asigno this.entradaDelTesterEditor como CodeMirror.fromTextArea(this.$refs.entrada_del_tester, {
+        lineNumbers: true
+      }).
+      asigno this.salidaDelTesterEditor como CodeMirror.fromTextArea(this.$refs.salida_del_tester, {
+        lineNumbers: true,
+        readOnly: "nocursor"
+      }).
+    }.
+  }.
+}.
+
+asigno window.App como una aplicación vue2 con nombre "App" con rutas [{
+  propiedad path como "/".
+  propiedad name como "PaginaDeInicio".
+  propiedad component como PaginaDeInicio.
+  propiedad props como {}.
+}] con traducciones {
+    propiedad es como {}.
+    propiedad en como {}.
+    propiedad ca como {}.
+} con plantilla {
+  <div class="App Component Castelog-app win7">
+    <router-view :root="this"></router-view>
+  </div>
+} con estilos {
+    html {}
+    body {}
+    .Component {}
+    .App {}
+} con lógica {
+  retorno {
+    método data donde {
+      retorno {}.
+    }.
+    propiedad methods como {}.
+    propiedad watch como {}.
+    método beforeMount donde {
+      asigno this.$window como window.
+    }.
+    método mounted donde {}.
+  }.
+} montada en "#app".

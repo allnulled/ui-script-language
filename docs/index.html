@@ -1,0 +1,147 @@
+<!DOCTYPE html><html><head>
+    <title>🌐 UIScript | Tester del lenguaje</title>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="lib/win7/win7.scoped.2.css" />
+    <link rel="stylesheet" type="text/css" href="lib/codemirror/codemirror.css" />
+    <script src="lib/calo/calo.js"></script>
+    <script src="lib/codemirror/codemirror.js"></script>
+    <script src="lib/ui-script/ui-script.parser.js"></script>
+    <style>
+      h5 {
+        margin: 0;
+        padding: 12px;
+        background-color: #333;
+        color: white;
+        font-size: 10px;
+        font-family: Arial;
+      }
+      .CodeMirror.cm-s-default{
+        font-size: 9px;
+      }
+    </style>
+</head><body><div id="app"></div><script>
+// [castelog:html5izable] ACTIVADO con: {"autor":"allnulled","nombre":"index","version":"1","contenido":{"head":"<head>\n    <title>🌐 UIScript | Tester del lenguaje</title>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/win7/win7.scoped.2.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/codemirror/codemirror.css\" />\n    &gt;script src=\"lib/calo/calo.js\">&gt;/script>\n    &gt;script src=\"lib/codemirror/codemirror.js\">&gt;/script>\n    &gt;script src=\"lib/ui-script/ui-script.parser.js\">&gt;/script>\n    <style>\n      h5 {\n        margin: 0;\n        padding: 12px;\n        background-color: #333;\n        color: white;\n        font-size: 10px;\n        font-family: Arial;\n      }\n      .CodeMirror.cm-s-default{\n        font-size: 9px;\n      }\n    </style>\n</head>","body":"<body><div id=\"app\"></div></body>"}}
+
+window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
+  "<div class=\"PaginaDeInicio Component\">"
+ + "    <h5>UIScript | Tester del lenguaje</h5>"
+ + "    <div>"
+ + "      <textarea ref=\"entrada_del_tester\" v-model=\"entradaDelTester\"></textarea>"
+ + "      <button style=\"width: 100%;\" v-on:click=\"validarSintaxis\">Validar</button>"
+ + "      <textarea ref=\"salida_del_tester\" v-model=\"salidaDelTester\" disabled=\"true\"></textarea>"
+ + "      <div v-if=\"error\" v-on:click=\"limpiarError\">"
+ + "        {{ error }}"
+ + "      </div>"
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { props:{ root:{ type:Object,
+required:true
+}
+},
+data() {try {
+return { idTesterTimeout:undefined,
+entradaDelTester:"!titulo {{ Título de página }}\n!breadcrumb {{ Ruta » a » subdireccion }}\n!formulario {\n !campo {{ Tipo: 'name', Clases: 'lo que sea', Etiqueta: 'Usuario:' }}\n !campo {{ Tipo: 'password', Etiqueta: 'Contraseña:' }}\n}",
+entradaDelTesterEditor:undefined,
+salidaDelTester:"",
+salidaDelTesterEditor:undefined,
+error:undefined
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ limpiarError() {try {
+this.error = undefined;
+this.$forceUpdate( true );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+gestionarError( error ) {try {
+this.error = error;
+this.$forceUpdate( true );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+validarSintaxis() {try {
+const uiScriptContenido = this.entradaDelTesterEditor.getValue(  );
+this.salidaDelTester = this.root.$window.UIScriptParser.parse( uiScriptContenido );
+console.log(this.salidaDelTester);
+this.salidaDelTesterEditor.setValue( this.salidaDelTester );
+} catch(error) {
+this.gestionarError( error );}
+}
+},
+watch:{ 
+},
+beforeMount() {
+},
+mounted() {try {
+this.entradaDelTesterEditor = CodeMirror.fromTextArea( this.$refs.entrada_del_tester,
+{ lineNumbers:true
+} );
+this.salidaDelTesterEditor = CodeMirror.fromTextArea( this.$refs.salida_del_tester,
+{ lineNumbers:true,
+readOnly:"nocursor"
+} );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+};},
+  null);
+window.App = Castelog.metodos.una_aplicacion_vue2(
+  "App",
+  "<div class=\"App Component Castelog-app win7\">"
+ + "    <router-view :root=\"this\"></router-view>"
+ + "  </div>",
+  function(component) {return { data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ 
+},
+beforeMount() {try {
+this.$window = window;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+mounted() {
+}
+};},
+  "html {}\n    body {}\n    .Component {}\n    .App {}\n",
+  {},
+  [ { path:"/",
+name:"PaginaDeInicio",
+component:PaginaDeInicio,
+props:{ 
+}
+} ],
+  { es:{ 
+},
+en:{ 
+},
+ca:{ 
+}
+},
+  "#app");</script></body></html>

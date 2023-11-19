@@ -1,0 +1,20 @@
+{
+  "name": "lenguaje-ui-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/ui-script-parser.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "npx nodemon -x pegjs -w src/ui-script.parser.pegjs -x 'npm run build-parser'",
+    "build-ui": "cp docs/index.1.html docs/index.html",
+    "build-parser": "npx pegjs -o src/ui-script.parser.ast.js src/ui-script.parser.ast.pegjs && npx pegjs -o src/ui-script.parser.js src/ui-script.parser.pegjs && npx pegjs -o docs/lib/ui-script/ui-script-parser.js --format globals --export-var UIScriptParser src/ui-script.parser.pegjs",
+    "start": "npx http-server -c-1 docs -o index.1.html",
+    "test": "node test/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

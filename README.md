@@ -3,6 +3,9 @@
 
 **UI-Script** is a shorter & simpler substitute for HTML syntax.
 
+![Shield](https://img.shields.io/badge/Set_of_components-yes-green) ![Shield](https://img.shields.io/badge/HTML_substitute-yes-green) ![Shield](https://img.shields.io/badge/Supports_es6_import_syntax-yes-green) ![Shield](https://img.shields.io/badge/Supports_es5_require_syntax-yes-green) ![Shield](https://img.shields.io/badge/Installable_by_command_line-yes-green)
+
+
 # Index
 
 - [UI-Script](#ui-script)
@@ -19,9 +22,12 @@ You have a free tester online version here:
 - [https://allnulled.github.io/ui-script-language](https://allnulled.github.io/ui-script-language)
 
 
+
+
 # Installation
 
 First, you import the CSS file for general and per-component styling:
+
 
 ```html
 <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script.css" />

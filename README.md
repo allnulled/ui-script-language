@@ -31,7 +31,7 @@ You have a free tester online version here:
 The documentation can be found:
 
 - On NPM at [https://npmjs.com/@allnulled/ui-script](https://npmjs.com/@allnulled/ui-script)
-- On Github at [https://github.com/allnulled/ui-script](https://github.com/allnulled/ui-script)
+- On Github at [https://github.com/allnulled/ui-script-language](https://github.com/allnulled/ui-script-language)
 
 # Installation
 

@@ -9,57 +9,12 @@ Ejecutable como documento HTML5
     
     <link rel="stylesheet" type="text/css" href="lib/win7/win7.scoped.2.css" />
     <link rel="stylesheet" type="text/css" href="lib/codemirror/codemirror.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-styles.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xpage/xpage.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlink/xlink.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xform/xform.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xformfield/xformfield.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xjumbotron/xjumbotron.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlabel/xlabel.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xsubtitle/xsubtitle.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtitle/xtitle.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindow/xwindow.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindowtitle/xwindowtitle.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindowbody/xwindowbody.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindowfooter/xwindowfooter.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xpanel/xpanel.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xbutton/xbutton.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlayout/xlayout.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xlayoutnopaddingtop/xlayoutnopaddingtop.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xwindowfooteritem/xwindowfooteritem.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtable/xtable.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtablerow/xtablerow.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtablecell/xtablecell.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script-components/xtester/xtester.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script.css" />
 
     <script src="lib/calo/calo.js"></script>
     <script src="lib/codemirror/codemirror.js"></script>
     <script src="lib/beautify/beautify-html.js"></script>
-    <script src="lib/ui-script/ui-script-parser.js"></script>
-    <script src="lib/ui-script/ui-script-api.js"></script>
-    <script src="lib/ui-script/ui-script-components/xpage/xpage.js"></script>
-    <script src="lib/ui-script/ui-script-components/xlink/xlink.js"></script>
-    <script src="lib/ui-script/ui-script-components/xbreadcrumb/xbreadcrumb.js"></script>
-    <script src="lib/ui-script/ui-script-components/xform/xform.js"></script>
-    <script src="lib/ui-script/ui-script-components/xformfield/xformfield.js"></script>
-    <script src="lib/ui-script/ui-script-components/xjumbotron/xjumbotron.js"></script>
-    <script src="lib/ui-script/ui-script-components/xlabel/xlabel.js"></script>
-    <script src="lib/ui-script/ui-script-components/xsubtitle/xsubtitle.js"></script>
-    <script src="lib/ui-script/ui-script-components/xtitle/xtitle.js"></script>
-    <script src="lib/ui-script/ui-script-components/xwindow/xwindow.js"></script>
-    <script src="lib/ui-script/ui-script-components/xwindowtitle/xwindowtitle.js"></script>
-    <script src="lib/ui-script/ui-script-components/xwindowbody/xwindowbody.js"></script>
-    <script src="lib/ui-script/ui-script-components/xwindowfooter/xwindowfooter.js"></script>
-    <script src="lib/ui-script/ui-script-components/xpanel/xpanel.js"></script>
-    <script src="lib/ui-script/ui-script-components/xbutton/xbutton.js"></script>
-    <script src="lib/ui-script/ui-script-components/xlayout/xlayout.js"></script>
-    <script src="lib/ui-script/ui-script-components/xlayoutnopaddingtop/xlayoutnopaddingtop.js"></script>
-    <script src="lib/ui-script/ui-script-components/xwindowfooteritem/xwindowfooteritem.js"></script>
-    <script src="lib/ui-script/ui-script-components/xtable/xtable.js"></script>
-    <script src="lib/ui-script/ui-script-components/xtablerow/xtablerow.js"></script>
-    <script src="lib/ui-script/ui-script-components/xtablecell/xtablecell.js"></script>
-    <script src="lib/ui-script/ui-script-components/xtester/xtester.js"></script>
+    <script src="lib/ui-script/ui-script.js"></script>
     
     <style>
       h5 {
@@ -72,6 +27,7 @@ Ejecutable como documento HTML5
       }
       .CodeMirror.cm-s-default{
         font-size: 9px;
+        resize: vertical;
       }
       .normal {
         font-family: Arial;
@@ -147,6 +103,7 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
         idTesterTimeout: undefined,
         entradaDelTester: `
 
+
 !div {
 
  !xpage [title="Página de login"] {
@@ -200,7 +157,34 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
   }
  }
 
+ !xpage [title="Página de inicio"] {
+  !xwindow {
+   !xwindowtitle {{ Inicio }}
+   !xwindowbody {
+    !xtitle {{ Inicio }}
+    !xlayout {
+     !xparagraph {{ Las secciones principales son: }}
+     !ul {
+      !li {
+       !xlink [href="#/"] {{ Inicio }}
+      }
+      !li {
+       !xlink [href="#/"] {{ Inicio }}
+      }
+      !li {
+       !xlink [href="#/"] {{ Inicio }}
+      }
+     }
+    }
+   }
+   !xwindowfooter {
+    !xwindowfooteritem {{ Estás en la página de «Inicio» }}
+   }
+  }
+ }
+
 }
+ 
  
  `,
         entradaDelTesterEditor: undefined,
@@ -227,7 +211,7 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
       }.
       método validarSintaxis donde {
         creo uiScriptContenido como this.entradaDelTesterEditor.getValue().
-        creo salidaDelParser como this.root.$window.UIScriptParser.parse(uiScriptContenido).
+        creo salidaDelParser como uiscript_api.parser.parse(uiScriptContenido).
         asigno this.salidaDelTester como Vue.component("xtester", {
           template: salidaDelParser
         }).

@@ -1,15 +1,25 @@
-# ui-script
+# UI-Script
 
-UI Script is a shorter & simpler substitute for HTML syntax.
 
-## Online version
+**UI-Script** is a shorter & simpler substitute for HTML syntax.
+
+# Index
+
+- [UI-Script](#ui-script)
+- [Index](#index)
+- [Online version](#online-version)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+
+# Online version
 
 You have a free tester online version here:
 
 - [https://allnulled.github.io/ui-script-language](https://allnulled.github.io/ui-script-language)
 
 
-## Installation
+# Installation
 
 First, you import the CSS file for general and per-component styling:
 
@@ -23,40 +33,7 @@ Second, you import the JS file for general and per-component logic:
 <script src="lib/ui-script/ui-script.js"></script>
 ```
 
-## Usage
-
-The following example demonstrates how to create a new Vue.js component from UI-Scripting markup.
-
-```html
-<script>
-Vue.component("CustomComponent", {
-    template: uiscript_api.parser.parse(`
-      !div {
-       !xwindow {
-        !xwindowtitle {{ Título de la ventana }}
-        !xwindowbody {
-         !xtitle {{ Título de página }}
-         !xsubtitle {{ Subttulo de página }}
-         !xbreadcrumb {{ Ruta » a » subdireccion }}
-         !xpanel {
-          !xform {
-           !xformfield {{ Usuario: }}
-           !xformfield {{ Contraseña: }}
-          }
-         }
-         !xlayoutnopaddingtop [style="text-align: right;"] {
-          !xbutton {{ Entrar }}
-         }
-        }
-        !xwindowfooter {
-         !xwindowfooteritem {{ Pie de ventana }}
-        }
-       }
-      }
-    `)
-});
-</script>
-```
+# Usage
 
 Once you have done this, 2 variables are added into the global scope `window`:
   - `uiscript_api` and
@@ -106,3 +83,38 @@ The `uiscript_components` holds all the ui-script (Vue2) components of the libra
 - [**`xwindowfooter`**](./docs/lib/ui-script/components/xwindowfooter/xwindowfooter.md)
 - [**`xwindowfooteritem`**](./docs/lib/ui-script/components/xwindowfooteritem/xwindowfooteritem.md)
 - [**`xwindowtitle`**](./docs/lib/ui-script/components/xwindowtitle/xwindowtitle.md)
+
+# Examples
+
+The following example demonstrates how to create a new Vue.js component from UI-Scripting markup.
+
+```html
+<script>
+Vue.component("CustomComponent", {
+    template: uiscript_api.parser.parse(`
+      !div {
+       !xwindow {
+        !xwindowtitle {{ Título de la ventana }}
+        !xwindowbody {
+         !xtitle {{ Título de página }}
+         !xsubtitle {{ Subttulo de página }}
+         !xbreadcrumb {{ Ruta » a » subdireccion }}
+         !xpanel {
+          !xform {
+           !xformfield {{ Usuario: }}
+           !xformfield {{ Contraseña: }}
+          }
+         }
+         !xlayoutnopaddingtop [style="text-align: right;"] {
+          !xbutton {{ Entrar }}
+         }
+        }
+        !xwindowfooter {
+         !xwindowfooteritem {{ Pie de ventana }}
+        }
+       }
+      }
+    `)
+});
+</script>
+```

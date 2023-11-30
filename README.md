@@ -11,6 +11,7 @@
 - [UI-Script](#ui-script)
 - [Index](#index)
 - [Online version](#online-version)
+- [Documentation](#documentation)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Examples](#examples)
@@ -25,9 +26,12 @@ You have a free tester online version here:
 - [https://allnulled.github.io/ui-script-language](https://allnulled.github.io/ui-script-language)
 
 
-The NPM package is located here:
+# Documentation
 
-- [https://npmjs.com]
+The documentation can be found:
+
+- On NPM at [https://npmjs.com/@allnulled/ui-script](https://npmjs.com/@allnulled/ui-script)
+- On Github at [https://github.com/allnulled/ui-script](https://github.com/allnulled/ui-script)
 
 # Installation
 

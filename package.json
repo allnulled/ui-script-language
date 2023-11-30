@@ -1,7 +1,7 @@
 {
   "name": "@allnulled/ui-script",
   "version": "1.0.1",
-  "description": "",
+  "description": "UI-Script is a shorter & simpler substitute for HTML syntax",
   "main": "src/ui-script.parser.js",
   "bin": {
     "uiscript": "src/ui-script.bin.js",
@@ -22,9 +22,22 @@
     "test": "node test/test.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "allnulled",
+  "license": "WTFPL",
   "devDependencies": {
     "fs-extra": "^11.2.0"
-  }
+  },
+  "dependencies": {
+    "graceful-fs": "^4.2.11",
+    "jsonfile": "^6.1.0",
+    "universalify": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allnulled/ui-script-language.git"
+  },
+  "bugs": {
+    "url": "https://github.com/allnulled/ui-script-language/issues"
+  },
+  "homepage": "https://github.com/allnulled/ui-script-language#readme"
 }

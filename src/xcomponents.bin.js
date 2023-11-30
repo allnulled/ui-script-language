@@ -13,6 +13,11 @@ try {
 } catch (error) {
     
 }
-fs.copyFileSync(__dirname + "/../docs/lib/ui-script/ui-script.js", output_dir_path + "/ui-script.js");
-fs.copyFileSync(__dirname + "/../docs/lib/ui-script/ui-script.css", output_dir_path + "/ui-script.css");
-fs.copyFileSync(__dirname + "/../docs/lib/ui-script/components", output_dir_path + "/components");
+try {
+    fs.mkdirSync(output_dir_path + "/lib");
+} catch (error) {
+    
+}
+fs.copySync(__dirname + "/../docs/lib/ui-script", output_dir_path + "/lib/ui-script");
+fs.copySync(__dirname + "/../docs/lib/calo", output_dir_path + "/lib/calo");
+fs.copySync(__dirname + "/../docs/lib/win7", output_dir_path + "/lib/win7");

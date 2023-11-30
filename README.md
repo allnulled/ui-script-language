@@ -3,7 +3,7 @@
 
 **UI-Script** is a shorter & simpler substitute for HTML syntax.
 
-![Shield](https://img.shields.io/badge/Set_of_components-yes-green) ![Shield](https://img.shields.io/badge/HTML_substitute-yes-green) ![Shield](https://img.shields.io/badge/Supports_es6_import_syntax-yes-green) ![Shield](https://img.shields.io/badge/Supports_es5_require_syntax-yes-green) ![Shield](https://img.shields.io/badge/Installable_by_command_line-yes-green)
+![Shield](https://img.shields.io/badge/Set_of_components-+20-green) ![Shield](https://img.shields.io/badge/HTML_substitute-optionally-green) ![Shield](https://img.shields.io/badge/Supports_es6_import_syntax-yes-green) ![Shield](https://img.shields.io/badge/Supports_es5_require_syntax-yes-green) ![Shield](https://img.shields.io/badge/Installable_by_command_line-2_binaries-green) ![Shield](https://img.shields.io/badge/Packed_with-browserify-green) ![Shield](https://img.shields.io/badge/Installable_via-npm-green) ![Shield](https://img.shields.io/badge/Binary_1-uiscript-green) ![Shield](https://img.shields.io/badge/Binary_2-xcomponents-green)
 
 
 # Index
@@ -26,17 +26,22 @@ You have a free tester online version here:
 
 # Installation
 
+Before starting, import the package via `npm`:
+
+```
+npm install --save ui-script
+```
+
 First, you import the CSS file for general and per-component styling:
 
-
 ```html
-<link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script.css" />
+<link rel="stylesheet" type="text/css" href="./node_modules/ui-script/docs/lib/ui-script/ui-script.css" />
 ```
 
 Second, you import the JS file for general and per-component logic:
 
 ```html
-<script src="lib/ui-script/ui-script.js"></script>
+<script src="./node_modules/ui-script/docs/lib/ui-script/ui-script.js"></script>
 ```
 
 # Usage

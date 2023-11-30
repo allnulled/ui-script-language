@@ -1,5 +1,5 @@
 {
-  "name": "ui-script",
+  "name": "@allnulled/ui-script",
   "version": "1.0.1",
   "description": "",
   "main": "src/ui-script.parser.js",

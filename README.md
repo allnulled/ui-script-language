@@ -29,7 +29,7 @@ You have a free tester online version here:
 Before starting, import the package via `npm`:
 
 ```
-npm install --save ui-script
+npm install --save @allnulled/ui-script
 ```
 
 First, you import the CSS file for general and per-component styling:

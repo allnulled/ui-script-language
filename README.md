@@ -14,6 +14,9 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Examples](#examples)
+- [Binaries usage](#binaries-usage)
+  - [Usage of `uiscript`](#usage-of-uiscript)
+  - [Usage of `xcomponents`](#usage-of-xcomponents)
 
 # Online version
 
@@ -22,7 +25,9 @@ You have a free tester online version here:
 - [https://allnulled.github.io/ui-script-language](https://allnulled.github.io/ui-script-language)
 
 
+The NPM package is located here:
 
+- [https://npmjs.com]
 
 # Installation
 
@@ -35,13 +40,13 @@ npm install --save @allnulled/ui-script
 First, you import the CSS file for general and per-component styling:
 
 ```html
-<link rel="stylesheet" type="text/css" href="./node_modules/ui-script/docs/lib/ui-script/ui-script.css" />
+<link rel="stylesheet" type="text/css" href="./node_modules/@allnulled/ui-script/docs/lib/ui-script/ui-script.css" />
 ```
 
 Second, you import the JS file for general and per-component logic:
 
 ```html
-<script src="./node_modules/ui-script/docs/lib/ui-script/ui-script.js"></script>
+<script src="./node_modules/@allnulled/ui-script/docs/lib/ui-script/ui-script.js"></script>
 ```
 
 # Usage
@@ -129,3 +134,29 @@ Vue.component("CustomComponent", {
 });
 </script>
 ```
+
+# Binaries usage
+
+## Usage of `uiscript`
+
+To parse `uiscript` code into `html` you can simply:
+
+```sh
+uiscript file1.uis file2.uis file3.uis
+```
+
+This will output the equivalent `html` files beside each.
+
+## Usage of `xcomponents`
+
+To create a setup of files (`lib` folder) you can simply:
+
+```sh
+xcomponents docs
+```
+
+This will create a `lib` folder inside the `docs` folder with:
+
+  - `calo`: [`castelog`](https://github.com/allnulled/castelog) import statement.
+  - `win7`: [`win7`](https://khang-nd.github.io/7.css/) CSS library.
+  - `ui-script`: [`ui-script`](.) JS and CSS files, and the whole component API too, in case you need to modify it.

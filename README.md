@@ -174,7 +174,7 @@ This will create a `lib` folder inside the `docs` folder with:
 
 ## Use Windows 7 programmatic dialogs
 
-The `xdialogport` provides a special API for Windows 7 based dialogs with very easy asynchronous methods. Visit its documentation [here](./docs/lib/ui-scriptcomponents/xdialogport/xdialogport.md) to take full advantage of this API.
+The `xdialogport` provides a special API for Windows 7 based dialogs with very easy asynchronous methods. Visit its documentation [here](./docs/lib/ui-script/components/xdialogport/xdialogport.md) to take full advantage of this API.
 
 As easy as:
 

@@ -2316,7 +2316,6 @@ function peg$parse(input, options) {
 
 
   	const reducir_sentencia_a_html = function(ast) {
-  		console.log("ast");
   		const { tag, atributos, contenido } = ast;
   		let html = "";
   		html += "<";
@@ -3591,7 +3590,6 @@ function peg$parse(input, options) {
 
 
   	const reducir_sentencia_a_html = function(ast) {
-  		console.log("ast");
   		const { tag, atributos, contenido } = ast;
   		let html = "";
   		html += "<";

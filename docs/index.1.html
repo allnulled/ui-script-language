@@ -6,11 +6,14 @@
     <link rel="stylesheet" type="text/css" href="lib/win7/win7.scoped.2.css" />
     <link rel="stylesheet" type="text/css" href="lib/codemirror/codemirror.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/components/xdialogport/xdialogport.css" />
 
     <script src="lib/calo/calo.js"></script>
     <script src="lib/codemirror/codemirror.js"></script>
     <script src="lib/beautify/beautify-html.js"></script>
     <script src="lib/ui-script/ui-script.js"></script>
+    <script src="lib/ui-script/components/xdialogport/xdialogport.js"></script>
+    <script src="lib/ui-script/components/xdialogport/xdialogcurrent.js"></script>
     
     <style>
       h5 {
@@ -46,7 +49,7 @@
       }
     </style>
 </head><body><div id="app"></div><script>
-// [castelog:html5izable] ACTIVADO con: {"autor":"allnulled","nombre":"index","version":"1","contenido":{"head":"<head>\n    <title>🌐 UIScript | Tester del lenguaje</title>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    \n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/win7/win7.scoped.2.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/codemirror/codemirror.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/ui-script/ui-script.css\" />\n\n    &gt;script src=\"lib/calo/calo.js\">&gt;/script>\n    &gt;script src=\"lib/codemirror/codemirror.js\">&gt;/script>\n    &gt;script src=\"lib/beautify/beautify-html.js\">&gt;/script>\n    &gt;script src=\"lib/ui-script/ui-script.js\">&gt;/script>\n    \n    <style>\n      h5 {\n        margin: 0;\n        padding: 12px;\n        background-color: #333;\n        color: white;\n        font-size: 10px;\n        font-family: Arial;\n      }\n      .CodeMirror.cm-s-default{\n        font-size: 9px;\n        resize: vertical;\n      }\n      .normal {\n        font-family: Arial;\n        font-size: 10px;\n      }\n      table.tabla_de_titulo {\n        width: 100%;\n      }\n      table.tabla_de_titulo td {\n\n      }\n      td.celda_de_titulo {\n        width: 100%;\n      }\n      .display_block {\n        display: block;\n      }\n      .display_none {\n        display: none;\n      }\n    </style>\n</head>","body":"<body><div id=\"app\"></div></body>"}}
+// [castelog:html5izable] ACTIVADO con: {"autor":"allnulled","nombre":"index","version":"1","contenido":{"head":"<head>\n    <title>🌐 UIScript | Tester del lenguaje</title>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    \n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/win7/win7.scoped.2.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/codemirror/codemirror.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/ui-script/ui-script.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/ui-script/components/xdialogport/xdialogport.css\" />\n\n    &gt;script src=\"lib/calo/calo.js\">&gt;/script>\n    &gt;script src=\"lib/codemirror/codemirror.js\">&gt;/script>\n    &gt;script src=\"lib/beautify/beautify-html.js\">&gt;/script>\n    &gt;script src=\"lib/ui-script/ui-script.js\">&gt;/script>\n    &gt;script src=\"lib/ui-script/components/xdialogport/xdialogport.js\">&gt;/script>\n    &gt;script src=\"lib/ui-script/components/xdialogport/xdialogcurrent.js\">&gt;/script>\n    \n    <style>\n      h5 {\n        margin: 0;\n        padding: 12px;\n        background-color: #333;\n        color: white;\n        font-size: 10px;\n        font-family: Arial;\n      }\n      .CodeMirror.cm-s-default{\n        font-size: 9px;\n        resize: vertical;\n      }\n      .normal {\n        font-family: Arial;\n        font-size: 10px;\n      }\n      table.tabla_de_titulo {\n        width: 100%;\n      }\n      table.tabla_de_titulo td {\n\n      }\n      td.celda_de_titulo {\n        width: 100%;\n      }\n      .display_block {\n        display: block;\n      }\n      .display_none {\n        display: none;\n      }\n    </style>\n</head>","body":"<body><div id=\"app\"></div></body>"}}
 
 window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
   "<div class=\"PaginaDeInicio Component\">"
@@ -118,7 +121,7 @@ entradaDelTester:`
       }
      }
      !xlayoutnopaddingtop [style="text-align: right;"] {
-      !xbutton {{ Entrar }}
+      !button [v-on:click="() => { data.is_showing_dialog = true; $forceUpdate(true); }"] {{ Entrar }}
      }
     }
     !xwindowfooter {
@@ -173,6 +176,37 @@ entradaDelTester:`
    }
   }
  }
+ 
+ !div [v-if="data.is_showing_dialog"] {
+  !xstatic {
+   !xwindow {
+    !xwindowtitle {{ Título de la ventana }}
+    !xwindowbody {
+     !xtitle {{ Título de página }}
+     !xsubtitle {{ Subttulo de página }}
+     !xbreadcrumb {
+      !xlink {{ Ruta }}
+      !span {{ » }}
+      !xlink {{ a }}
+      !span {{ » }}
+      !xlink {{ subdireccion }}
+     }
+     !xpanel {
+      !xform {
+       !xformfield {{ Usuario: }}
+       !xformfield {{ Contraseña: }}
+      }
+     }
+     !xlayoutnopaddingtop [style="text-align: right;"] {
+      !button [v-on:click="() => { data.is_showing_dialog = false; $forceUpdate(true); }"] {{ Cerrar }}
+     }
+    }
+    !xwindowfooter {
+     !xwindowfooteritem {{ Pie de ventana }}
+    }
+   }
+  }
+ }
 
 }
  
@@ -224,7 +258,28 @@ validarSintaxis() {try {
 const uiScriptContenido = this.entradaDelTesterEditor.getValue(  );
 const salidaDelParser = uiscript_api.parser.parse( uiScriptContenido );
 this.salidaDelTester = Vue.component( "xtester",
-{ template:salidaDelParser
+{ template:salidaDelParser,
+props:{ root:{ type:Object,
+default:() => {try {
+return this.root;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+}
+},
+data:function() {try {
+return { data:{ 
+}
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
 } );
 console.log("uiScriptContenido");
 console.log(uiScriptContenido);
@@ -273,6 +328,7 @@ window.App = Castelog.metodos.una_aplicacion_vue2(
   "App",
   "<div class=\"App Component Castelog-app win7\">"
  + "    <router-view :root=\"this\"></router-view>"
+ + "    <xdialogport></xdialogport>"
  + "  </div>",
   function(component) {return { data() {try {
 return { 

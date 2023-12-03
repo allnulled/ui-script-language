@@ -97,6 +97,35 @@ entradaDelTester:`
 
 !div {
 
+  !xstatic {
+   !xwindow {
+    !xwindowtitle {{ Título de la ventana }}
+    !xwindowbody {
+     !xtitle {{ Título de página }}
+     !xsubtitle {{ Subttulo de página }}
+     !xbreadcrumb {
+      !xlink {{ Ruta }}
+      !span {{ » }}
+      !xlink {{ a }}
+      !span {{ » }}
+      !xlink {{ subdireccion }}
+     }
+     !xpanel {
+      !xform {
+       !xformfield {{ Usuario: }}
+       !xformfield {{ Contraseña: }}
+      }
+     }
+     !xlayoutnopaddingtop [style="text-align: right;"] {
+      !xbutton {{ Entrar }}
+     }
+    }
+    !xwindowfooter {
+     !xwindowfooteritem {{ Pie de ventana }}
+    }
+   }
+  }
+  
  !xpage [title="Página de login"] {
   !div {
    !xwindow {

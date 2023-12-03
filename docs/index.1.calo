@@ -10,11 +10,14 @@ Ejecutable como documento HTML5
     <link rel="stylesheet" type="text/css" href="lib/win7/win7.scoped.2.css" />
     <link rel="stylesheet" type="text/css" href="lib/codemirror/codemirror.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script.css" />
+    <link rel="stylesheet" type="text/css" href="lib/ui-script/components/xdialogport/xdialogport.css" />
 
     <script src="lib/calo/calo.js"></script>
     <script src="lib/codemirror/codemirror.js"></script>
     <script src="lib/beautify/beautify-html.js"></script>
     <script src="lib/ui-script/ui-script.js"></script>
+    <script src="lib/ui-script/components/xdialogport/xdialogport.js"></script>
+    <script src="lib/ui-script/components/xdialogport/xdialogcurrent.js"></script>
     
     <style>
       h5 {
@@ -127,7 +130,7 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
       }
      }
      !xlayoutnopaddingtop [style="text-align: right;"] {
-      !xbutton {{ Entrar }}
+      !button [v-on:click="() => { data.is_showing_dialog = true; $forceUpdate(true); }"] {{ Entrar }}
      }
     }
     !xwindowfooter {
@@ -182,6 +185,37 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
    }
   }
  }
+ 
+ !div [v-if="data.is_showing_dialog"] {
+  !xstatic {
+   !xwindow {
+    !xwindowtitle {{ Título de la ventana }}
+    !xwindowbody {
+     !xtitle {{ Título de página }}
+     !xsubtitle {{ Subttulo de página }}
+     !xbreadcrumb {
+      !xlink {{ Ruta }}
+      !span {{ » }}
+      !xlink {{ a }}
+      !span {{ » }}
+      !xlink {{ subdireccion }}
+     }
+     !xpanel {
+      !xform {
+       !xformfield {{ Usuario: }}
+       !xformfield {{ Contraseña: }}
+      }
+     }
+     !xlayoutnopaddingtop [style="text-align: right;"] {
+      !button [v-on:click="() => { data.is_showing_dialog = false; $forceUpdate(true); }"] {{ Cerrar }}
+     }
+    }
+    !xwindowfooter {
+     !xwindowfooteritem {{ Pie de ventana }}
+    }
+   }
+  }
+ }
 
 }
  
@@ -213,7 +247,18 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
         creo uiScriptContenido como this.entradaDelTesterEditor.getValue().
         creo salidaDelParser como uiscript_api.parser.parse(uiScriptContenido).
         asigno this.salidaDelTester como Vue.component("xtester", {
-          template: salidaDelParser
+          template: salidaDelParser,
+          props: {
+            root: {
+              type: Object,
+              default: una lambda donde retorno this.root
+            }
+          },
+          data: una función donde {
+            retorno {
+              data: {}
+            }.
+          }
         }).
         imprimo "uiScriptContenido".
         imprimo uiScriptContenido.
@@ -258,6 +303,7 @@ asigno window.App como una aplicación vue2 con nombre "App" con rutas [{
 } con plantilla {
   <div class="App Component Castelog-app win7">
     <router-view :root="this"></router-view>
+    <xdialogport></xdialogport>
   </div>
 } con estilos {
     html {}
@@ -274,6 +320,8 @@ asigno window.App como una aplicación vue2 con nombre "App" con rutas [{
     método beforeMount donde {
       asigno this.$window como window.
     }.
-    método mounted donde {}.
+    método mounted donde {
+      
+    }.
   }.
 } montada en "#app".

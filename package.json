@@ -1,6 +1,6 @@
 {
   "name": "@allnulled/ui-script",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "UI-Script is a shorter & simpler substitute for HTML syntax",
   "main": "src/ui-script.parser.js",
   "bin": {

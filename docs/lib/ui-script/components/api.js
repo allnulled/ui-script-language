@@ -1,4 +1,5 @@
 window.uiscript_components = {};
+window.uiscript_api = {};
 
 const xbreadcrumb = require("./xbreadcrumb/xbreadcrumb.js");
 const xbutton = require("./xbutton/xbutton.js");
@@ -30,11 +31,11 @@ const xstatic = require("./xstatic/xstatic.js");
 const ast_parser = require("../../../../src/ui-script.parser.ast.js");
 const parser = require("../../../../src/ui-script.parser.js");
 
-window.uiscript_api = {
+Object.assign(window.uiscript_api, {
     ast: { parser: ast_parser },
     parser,
     components: window.uiscript_components
-};
+});
 
 window.uiscript_api.default = window.uiscript_api;
 

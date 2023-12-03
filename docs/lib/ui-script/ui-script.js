@@ -1,5 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 window.uiscript_components = {};
+window.uiscript_api = {};
 
 const xbreadcrumb = require("./xbreadcrumb/xbreadcrumb.js");
 const xbutton = require("./xbutton/xbutton.js");
@@ -31,11 +32,11 @@ const xstatic = require("./xstatic/xstatic.js");
 const ast_parser = require("../../../../src/ui-script.parser.ast.js");
 const parser = require("../../../../src/ui-script.parser.js");
 
-window.uiscript_api = {
+Object.assign(window.uiscript_api, {
     ast: { parser: ast_parser },
     parser,
     components: window.uiscript_components
-};
+});
 
 window.uiscript_api.default = window.uiscript_api;
 
@@ -240,8 +241,8 @@ throw error;
 generate_html_2( html,
 title,
 footer,
-accept_button,
-reject_button ) {try {
+button_accept = "Aceptar",
+button_reject = "Cancelar" ) {try {
 let html_vue = "";
 html_vue += "<xwindow>";
 html_vue += " <xwindowtitle>";
@@ -252,10 +253,10 @@ html_vue += "  <form v-on:submit='finalize_dialog'>";
 html_vue += "   " + html;
 html_vue += "   <div style='text-align:right;padding:4px;border-top:1px solid #CCC;'>";
 html_vue += "     <button v-on:click='finalize_dialog_accepting'>";
-html_vue += "       " + accept_button;
+html_vue += "       " + button_accept;
 html_vue += "     </button>";
 html_vue += "     <button v-on:click='finalize_dialog_rejecting'>";
-html_vue += "       " + reject_button;
+html_vue += "       " + button_reject;
 html_vue += "     </button>";
 html_vue += "   </div>";
 html_vue += "  </form>";
@@ -278,7 +279,7 @@ throw error;
 generate_html_3( html,
 title,
 footer,
-accept_button ) {try {
+button_accept = "Aceptar" ) {try {
 let html_vue = "";
 html_vue += "<xwindow>";
 html_vue += " <xwindowtitle>";
@@ -289,7 +290,7 @@ html_vue += "  <form v-on:submit='finalize_dialog'>";
 html_vue += "   " + html;
 html_vue += "   <div style='text-align:right;padding:4px;border-top:1px solid #CCC;'>";
 html_vue += "     <button v-on:click='finalize_dialog_accepting'>";
-html_vue += "       " + accept_button;
+html_vue += "       " + button_accept;
 html_vue += "     </button>";
 html_vue += "   </div>";
 html_vue += "  </form>";
@@ -400,19 +401,46 @@ throw error;
 }
 
 },
+get_template_from_dialog( dialogo_2 ) {try {
+let html_vue = undefined;
+if(dialogo_2.type === "form") {
+html_vue = this.generate_html_1( dialogo_2.html,
+dialogo_2.title,
+dialogo_2.footer );
+}
+else if(dialogo_2.type === "confirm") {
+html_vue = this.generate_html_2( dialogo_2.html,
+dialogo_2.title,
+dialogo_2.footer,
+dialogo_2.button_accept,
+dialogo_2.button_reject );
+}
+else if(dialogo_2.type === "inform") {
+html_vue = this.generate_html_3( dialogo_2.html,
+dialogo_2.title,
+dialogo_2.footer,
+dialogo_2.button_accept );
+}
+else {
+throw new Error( "No se identificó el tipo de diálogo" );
+}
+return html_vue;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
 async close_first() {try {
 const dialogo = this.dialogs.shift(  );
 const tipo = dialogo.type;
 const datos = this.extract_fields_from_dialog( this.$refs.current_dialog );
 dialogo.promise_handler.ok( datos );
 if(this.dialogs.length === 0) {
-this.$forceUpdate( true );
-return false;
+return this.reset(  );
 }
 const dialogo_2 = this.dialogs[ 0 ];
-const html_vue = this.generate_html_1( dialogo_2.html,
-dialogo_2.title,
-dialogo_2.footer );
+const html_vue = this.get_template_from_dialog( dialogo_2 );
 Vue.component( "xdialogcurrent",
 { template:html_vue,
 
@@ -431,13 +459,10 @@ const tipo = dialogo.type;
 const datos = this.extract_fields_from_dialog( this.$refs.current_dialog );
 dialogo.promise_handler.ok( true );
 if(this.dialogs.length === 0) {
-this.$forceUpdate( true );
-return false;
+return this.reset(  );
 }
 const dialogo_2 = this.dialogs[ 0 ];
-const html_vue = this.generate_html_1( dialogo_2.html,
-dialogo_2.title,
-dialogo_2.footer );
+const html_vue = this.get_template_from_dialog( dialogo_2 );
 Vue.component( "xdialogcurrent",
 { template:html_vue,
 
@@ -456,13 +481,10 @@ const tipo = dialogo.type;
 const datos = this.extract_fields_from_dialog( this.$refs.current_dialog );
 dialogo.promise_handler.ok( false );
 if(this.dialogs.length === 0) {
-this.$forceUpdate( true );
-return false;
+return this.reset(  );
 }
 const dialogo_2 = this.dialogs[ 0 ];
-const html_vue = this.generate_html_1( dialogo_2.html,
-dialogo_2.title,
-dialogo_2.footer );
+const html_vue = this.get_template_from_dialog( dialogo_2 );
 Vue.component( "xdialogcurrent",
 { template:html_vue,
 
@@ -475,7 +497,25 @@ throw error;
 }
 
 },
-async form( html,
+async form( ...args ) {try {
+const [ html_o_todos ] = args;
+if(typeof html_o_todos === 'string') {
+return this.form_by_parameters( 
+...(args ) );
+}
+if(typeof html_o_todos === 'object') {
+return this.form_by_parameters( html_o_todos.html,
+html_o_todos.title,
+html_o_todos.footer );
+}
+throw new Error( "Parámetro no identificado en llamada a «xdialogport.form»" );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+async form_by_parameters( html,
 title = "Message",
 footer = false ) {try {
 const promise_handler = { 
@@ -499,10 +539,8 @@ footer,
 promise_handler
 } );
 if(this.dialogs.length === 1) {
-const dialogo = this.dialogs[ 0 ].html;
-const html_vue = this.generate_html_1( dialogo.html,
-dialogo.title,
-dialogo.footer );
+const dialogo_2 = this.dialogs[ 0 ];
+const html_vue = this.get_template_from_dialog( dialogo_2 );
 Vue.component( "xdialogcurrent",
 { template:html_vue,
 
@@ -518,7 +556,27 @@ throw error;
 }
 
 },
-async confirm( html,
+async confirm( ...args ) {try {
+const [ html_o_todos ] = args;
+if(typeof html_o_todos === 'string') {
+return this.confirm_by_parameters( 
+...(args ) );
+}
+if(typeof html_o_todos === 'object') {
+return this.confirm_by_parameters( html_o_todos.html,
+html_o_todos.title,
+html_o_todos.footer,
+html_o_todos.button_accept,
+html_o_todos.button_reject );
+}
+throw new Error( "Parámetro no identificado en llamada a «xdialogport.confirm»" );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+async confirm_by_parameters( html,
 title = "Message",
 footer = false,
 button_accept = "Aceptar",
@@ -541,15 +599,13 @@ this.dialogs.push( { type:"confirm",
 html,
 title,
 footer,
+button_accept,
+button_reject,
 promise_handler
 } );
 if(this.dialogs.length === 1) {
-const dialogo = this.dialogs[ 0 ];
-const html_vue = this.generate_html_2( dialogo.html,
-dialogo.title,
-dialogo.footer,
-button_accept,
-button_reject );
+const dialogo_2 = this.dialogs[ 0 ];
+const html_vue = this.get_template_from_dialog( dialogo_2 );
 Vue.component( "xdialogcurrent",
 { template:html_vue,
 
@@ -565,7 +621,26 @@ throw error;
 }
 
 },
-async inform( html,
+async inform( ...args ) {try {
+const [ html_o_todos ] = args;
+if(typeof html_o_todos === 'string') {
+return this.inform_by_parameters( 
+...(args ) );
+}
+if(typeof html_o_todos === 'object') {
+return this.inform_by_parameters( html_o_todos.html,
+html_o_todos.title,
+html_o_todos.footer,
+html_o_todos.button_accept );
+}
+throw new Error( "Parámetro no identificado en llamada a «xdialogport.inform»" );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+async inform_by_parameters( html,
 title = "Message",
 footer = false,
 button_accept = "Aceptar" ) {try {
@@ -587,14 +662,12 @@ this.dialogs.push( { type:"inform",
 html,
 title,
 footer,
+button_accept,
 promise_handler
 } );
 if(this.dialogs.length === 1) {
-const dialogo = this.dialogs[ 0 ];
-const html_vue = this.generate_html_3( dialogo.html,
-dialogo.title,
-dialogo.footer,
-button_accept );
+const dialogo_2 = this.dialogs[ 0 ];
+const html_vue = this.get_template_from_dialog( dialogo_2 );
 Vue.component( "xdialogcurrent",
 { template:html_vue,
 
@@ -621,7 +694,14 @@ created() {
 },
 beforeMount() {
 },
-mounted() {
+mounted() {try {
+Vue.prototype.$dialogs = this;
+Vue.prototype.$xdialogport = this;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
 },
 beforeUpdate() {
 },

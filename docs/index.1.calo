@@ -10,14 +10,11 @@ Ejecutable como documento HTML5
     <link rel="stylesheet" type="text/css" href="lib/win7/win7.scoped.2.css" />
     <link rel="stylesheet" type="text/css" href="lib/codemirror/codemirror.css" />
     <link rel="stylesheet" type="text/css" href="lib/ui-script/ui-script.css" />
-    <link rel="stylesheet" type="text/css" href="lib/ui-script/components/xdialogport/xdialogport.css" />
 
     <script src="lib/calo/calo.js"></script>
     <script src="lib/codemirror/codemirror.js"></script>
     <script src="lib/beautify/beautify-html.js"></script>
     <script src="lib/ui-script/ui-script.js"></script>
-    <script src="lib/ui-script/components/xdialogport/xdialogport.js"></script>
-    <script src="lib/ui-script/components/xdialogport/xdialogcurrent.js"></script>
     
     <style>
       h5 {

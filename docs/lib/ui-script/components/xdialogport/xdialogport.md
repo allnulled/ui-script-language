@@ -72,3 +72,17 @@ const accept = await Vue.prototype.$dialogs.inform({
     footer: "Calmed, doing kinda forms."
 });
 ```
+
+## Images
+
+The `Vue.prototype.$dialogs.inform` method looks like this:
+
+![Metodo_inform](./dialogo-informar.png)
+
+The `Vue.prototype.$dialogs.confirm` method looks like this:
+
+![Metodo_confirm](./dialogo-confirmar.png)
+
+The `Vue.prototype.$dialogs.form` method looks like this:
+
+![Metodo_form](./dialogo-formulario.png)

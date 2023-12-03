@@ -79,36 +79,36 @@ The `uiscript_api.components` holds the `uiscript_components` object.
 
 The `uiscript_components` holds all the ui-script (Vue2) components of the library, this is:
 
-- [**docs/lib/ui-script/components/xbreadcrumb**](./docs/lib/ui-script/components/xbreadcrumb)
-- [**docs/lib/ui-script/components/xbutton**](./docs/lib/ui-script/components/xbutton)
-- [**docs/lib/ui-script/components/xdialogport**](./docs/lib/ui-script/components/xdialogport). Imports a special API for Windows 7 dialogs based on Vue components usage.
-- [**docs/lib/ui-script/components/xform**](./docs/lib/ui-script/components/xform)
-- [**docs/lib/ui-script/components/xformfield**](./docs/lib/ui-script/components/xformfield)
-- [**docs/lib/ui-script/components/xjumbotron**](./docs/lib/ui-script/components/xjumbotron)
-- [**docs/lib/ui-script/components/xlabel**](./docs/lib/ui-script/components/xlabel)
-- [**docs/lib/ui-script/components/xlayout**](./docs/lib/ui-script/components/xlayout)
-- [**docs/lib/ui-script/components/xlayoutnopaddingbottom**](./docs/lib/ui-script/components/xlayoutnopaddingbottom)
-- [**docs/lib/ui-script/components/xlayoutnopaddingtop**](./docs/lib/ui-script/components/xlayoutnopaddingtop)
-- [**docs/lib/ui-script/components/xlink**](./docs/lib/ui-script/components/xlink)
-- [**docs/lib/ui-script/components/xpage**](./docs/lib/ui-script/components/xpage)
-- [**docs/lib/ui-script/components/xpanel**](./docs/lib/ui-script/components/xpanel)
-- [**docs/lib/ui-script/components/xparagraph**](./docs/lib/ui-script/components/xparagraph)
-- [**docs/lib/ui-script/components/xstatic**](./docs/lib/ui-script/components/xstatic)
-- [**docs/lib/ui-script/components/xsubtitle**](./docs/lib/ui-script/components/xsubtitle)
-- [**docs/lib/ui-script/components/xtable**](./docs/lib/ui-script/components/xtable)
-- [**docs/lib/ui-script/components/xtablecell**](./docs/lib/ui-script/components/xtablecell)
-- [**docs/lib/ui-script/components/xtablerow**](./docs/lib/ui-script/components/xtablerow)
-- [**docs/lib/ui-script/components/xtester**](./docs/lib/ui-script/components/xtester)
-- [**docs/lib/ui-script/components/xtitle**](./docs/lib/ui-script/components/xtitle)
-- [**docs/lib/ui-script/components/xwindow**](./docs/lib/ui-script/components/xwindow)
-- [**docs/lib/ui-script/components/xwindowbody**](./docs/lib/ui-script/components/xwindowbody)
-- [**docs/lib/ui-script/components/xwindowfooter**](./docs/lib/ui-script/components/xwindowfooter)
-- [**docs/lib/ui-script/components/xwindowfooteritem**](./docs/lib/ui-script/components/xwindowfooteritem)
-- [**docs/lib/ui-script/components/xwindowtitle**](./docs/lib/ui-script/components/xwindowtitle)
+- [**docs/lib/ui-script/components/xbreadcrumb**](./docs/lib/ui-script/components/xbreadcrumb/xbreadcrumb.md)
+- [**docs/lib/ui-script/components/xbutton**](./docs/lib/ui-script/components/xbutton/xbutton.md)
+- [**docs/lib/ui-script/components/xdialogport**](./docs/lib/ui-script/components/xdialogport). Imports a special API for Windows 7 dialogs based on Vue.js v2 components usage/usage.md.
+- [**docs/lib/ui-script/components/xform**](./docs/lib/ui-script/components/xform/xform.md)
+- [**docs/lib/ui-script/components/xformfield**](./docs/lib/ui-script/components/xformfield/xformfield.md)
+- [**docs/lib/ui-script/components/xjumbotron**](./docs/lib/ui-script/components/xjumbotron/xjumbotron.md)
+- [**docs/lib/ui-script/components/xlabel**](./docs/lib/ui-script/components/xlabel/xlabel.md)
+- [**docs/lib/ui-script/components/xlayout**](./docs/lib/ui-script/components/xlayout/xlayout.md)
+- [**docs/lib/ui-script/components/xlayoutnopaddingbottom**](./docs/lib/ui-script/components/xlayoutnopaddingbottom/xlayoutnopaddingbottom.md)
+- [**docs/lib/ui-script/components/xlayoutnopaddingtop**](./docs/lib/ui-script/components/xlayoutnopaddingtop/xlayoutnopaddingtop.md)
+- [**docs/lib/ui-script/components/xlink**](./docs/lib/ui-script/components/xlink/xlink.md)
+- [**docs/lib/ui-script/components/xpage**](./docs/lib/ui-script/components/xpage/xpage.md)
+- [**docs/lib/ui-script/components/xpanel**](./docs/lib/ui-script/components/xpanel/xpanel.md)
+- [**docs/lib/ui-script/components/xparagraph**](./docs/lib/ui-script/components/xparagraph/xparagraph.md)
+- [**docs/lib/ui-script/components/xstatic**](./docs/lib/ui-script/components/xstatic/xstatic.md)
+- [**docs/lib/ui-script/components/xsubtitle**](./docs/lib/ui-script/components/xsubtitle/xsubtitle.md)
+- [**docs/lib/ui-script/components/xtable**](./docs/lib/ui-script/components/xtable/xtable.md)
+- [**docs/lib/ui-script/components/xtablecell**](./docs/lib/ui-script/components/xtablecell/xtablecell.md)
+- [**docs/lib/ui-script/components/xtablerow**](./docs/lib/ui-script/components/xtablerow/xtablerow.md)
+- [**docs/lib/ui-script/components/xtester**](./docs/lib/ui-script/components/xtester/xtester.md)
+- [**docs/lib/ui-script/components/xtitle**](./docs/lib/ui-script/components/xtitle/xtitle.md)
+- [**docs/lib/ui-script/components/xwindow**](./docs/lib/ui-script/components/xwindow/xwindow.md)
+- [**docs/lib/ui-script/components/xwindowbody**](./docs/lib/ui-script/components/xwindowbody/xwindowbody.md)
+- [**docs/lib/ui-script/components/xwindowfooter**](./docs/lib/ui-script/components/xwindowfooter/xwindowfooter.md)
+- [**docs/lib/ui-script/components/xwindowfooteritem**](./docs/lib/ui-script/components/xwindowfooteritem/xwindowfooteritem.md)
+- [**docs/lib/ui-script/components/xwindowtitle**](./docs/lib/ui-script/components/xwindowtitle/xwindowtitle.md)
 
 # Examples
 
-The following example demonstrates how to create a new Vue.js component from UI-Scripting markup.
+The following example demonstrates how to create a new Vue.js v2 component from UI-Scripting markup.
 
 ```html
 <script>

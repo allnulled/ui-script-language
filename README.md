@@ -81,7 +81,7 @@ The `uiscript_components` holds all the ui-script (Vue2) components of the libra
 
 - [**docs/lib/ui-script/components/xbreadcrumb**](./docs/lib/ui-script/components/xbreadcrumb/xbreadcrumb.md)
 - [**docs/lib/ui-script/components/xbutton**](./docs/lib/ui-script/components/xbutton/xbutton.md)
-- [**docs/lib/ui-script/components/xdialogport**](./docs/lib/ui-script/components/xdialogport). Imports a special API for Windows 7 dialogs based on Vue.js v2 components usage/usage.md.
+- [**docs/lib/ui-script/components/xdialogport**](./docs/lib/ui-script/components/xdialogport/xdialogport.md). Imports a special API for Windows 7 dialogs based on Vue.js v2 components usage.
 - [**docs/lib/ui-script/components/xform**](./docs/lib/ui-script/components/xform/xform.md)
 - [**docs/lib/ui-script/components/xformfield**](./docs/lib/ui-script/components/xformfield/xformfield.md)
 - [**docs/lib/ui-script/components/xjumbotron**](./docs/lib/ui-script/components/xjumbotron/xjumbotron.md)

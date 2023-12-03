@@ -1,43 +1,44 @@
 {
-  "name": "@allnulled/ui-script",
-  "version": "1.0.6",
-  "description": "UI-Script is a shorter & simpler substitute for HTML syntax",
-  "main": "src/ui-script.parser.js",
-  "bin": {
-    "uiscript": "src/ui-script.bin.js",
-    "xcomponents": "src/xcomponents.bin.js"
-  },
-  "directories": {
-    "doc": "docs",
-    "test": "test"
-  },
-  "scripts": {
-    "dev": "npx nodemon -x pegjs -w src/ui-script.parser.pegjs -x 'npm run build'",
-    "build": "npm run build-api && npm run build-ui && npm run build-parser && npm run build-css && npm test",
-    "build-css": "node dev/build-css.js",
-    "build-api": "npx browserify docs/lib/ui-script/components/api.js --outfile docs/lib/ui-script/ui-script.js",
-    "build-ui": "cp docs/index.1.html docs/index.html",
-    "build-parser": "npx pegjs -o src/ui-script.parser.ast.js src/ui-script.parser.ast.pegjs && npx pegjs -o src/ui-script.parser.js src/ui-script.parser.pegjs",
-    "start": "npx http-server -c-1 docs -o index.1.html",
-    "test": "node test/test.js"
-  },
-  "keywords": [],
-  "author": "allnulled",
-  "license": "WTFPL",
-  "devDependencies": {
-    "fs-extra": "^11.2.0"
-  },
-  "dependencies": {
-    "graceful-fs": "^4.2.11",
-    "jsonfile": "^6.1.0",
-    "universalify": "^2.0.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/allnulled/ui-script-language.git"
-  },
-  "bugs": {
-    "url": "https://github.com/allnulled/ui-script-language/issues"
-  },
-  "homepage": "https://github.com/allnulled/ui-script-language#readme"
+    "name": "@allnulled/ui-script",
+    "version": "1.0.6",
+    "description": "UI-Script is a shorter & simpler substitute for HTML syntax",
+    "main": "src/ui-script.parser.js",
+    "bin": {
+        "uiscript": "src/ui-script.bin.js",
+        "xcomponents": "src/xcomponents.bin.js"
+    },
+    "directories": {
+        "doc": "docs",
+        "test": "test"
+    },
+    "scripts": {
+        "dev": "npx nodemon -x pegjs -w src/ui-script.parser.pegjs -x 'npm run build'",
+        "build": "npm run build-api && npm run build-ui && npm run build-parser && npm run build-css && npm test",
+        "build-css": "node dev/build-css.js",
+        "build-api": "npx browserify docs/lib/ui-script/components/api.js --outfile docs/lib/ui-script/ui-script.js",
+        "build-ui": "cp docs/index.1.html docs/index.html",
+        "build-parser": "npx pegjs -o src/ui-script.parser.ast.js src/ui-script.parser.ast.pegjs && npx pegjs -o src/ui-script.parser.js src/ui-script.parser.pegjs",
+        "start": "npx http-server -c-1 docs -o index.1.html",
+        "test": "node test/test.js"
+    },
+    "keywords": [],
+    "author": "allnulled",
+    "license": "WTFPL",
+    "devDependencies": {
+        "fs-extra": "^11.2.0"
+    },
+    "dependencies": {
+        "graceful-fs": "^4.2.11",
+        "jsonfile": "^6.1.0",
+        "universalify": "^2.0.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/allnulled/ui-script-language.git"
+    },
+    "bugs": {
+        "url": "https://github.com/allnulled/ui-script-language/issues"
+    },
+    "homepage": "https://github.com/allnulled/ui-script-language#readme",
+    "uuid_commit": 1
 }

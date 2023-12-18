@@ -52,10 +52,46 @@ Ejecutable como documento HTML5
 </head>
 <body><div id="app"></div></body>.
 
+asigno window.PaginaDeTesterPersonalizado como un componente vue2 con nombre "PaginaDeTesterPersonalizado" con plantilla {
+  <div class="PaginaDeTesterPersonalizado Component">
+    <div class="normal">
+      Back to <router-link to="/">Home</router-link>.
+    </div>
+  </div>
+} con lógica {
+  retorno {
+    método data donde {
+      retorno {}.
+    }.
+  }.
+}.
+
 asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio" con plantilla {
   <div class="PaginaDeInicio Component">
     <div class="normal">
       Back to <a href="https://github.com/allnulled/ui-script-language">Github project</a>.
+    </div>
+    <ul>
+      <li>
+        <router-link to="/tester1">Go to tester</router-link>
+      </li>
+      <li>
+        <router-link to="/tester2">Go to tester 2</router-link>
+      </li>
+    </ul>
+  </div>
+} con lógica {
+  retorno {
+    método data donde {
+      retorno {}.
+    }.
+  }.
+}.
+
+asigno window.PaginaDeTester como un componente vue2 con nombre "PaginaDeTester" con plantilla {
+  <div class="PaginaDeTester Component">
+    <div class="normal">
+      Back to <router-link to="/">Home</router-link>.
     </div>
     <h5>
       <table class="tabla_de_titulo">
@@ -292,6 +328,16 @@ asigno window.App como una aplicación vue2 con nombre "App" con rutas [{
   propiedad path como "/".
   propiedad name como "PaginaDeInicio".
   propiedad component como PaginaDeInicio.
+  propiedad props como {}.
+}, {
+  propiedad path como "/tester1".
+  propiedad name como "PaginaDeTester".
+  propiedad component como PaginaDeTester.
+  propiedad props como {}.
+}, {
+  propiedad path como "/tester2".
+  propiedad name como "PaginaDeTesterPersonalizado".
+  propiedad component como PaginaDeTesterPersonalizado.
   propiedad props como {}.
 }] con traducciones {
     propiedad es como {}.

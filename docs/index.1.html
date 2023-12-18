@@ -48,10 +48,52 @@
 </head><body><div id="app"></div><script>
 // [castelog:html5izable] ACTIVADO con: {"autor":"allnulled","nombre":"index","version":"1","contenido":{"head":"<head>\n    <title>🌐 UIScript | Tester del lenguaje</title>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    \n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/win7/win7.scoped.2.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/codemirror/codemirror.css\" />\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"lib/ui-script/ui-script.css\" />\n\n    &gt;script src=\"lib/calo/calo.js\">&gt;/script>\n    &gt;script src=\"lib/codemirror/codemirror.js\">&gt;/script>\n    &gt;script src=\"lib/beautify/beautify-html.js\">&gt;/script>\n    &gt;script src=\"lib/ui-script/ui-script.js\">&gt;/script>\n    \n    <style>\n      h5 {\n        margin: 0;\n        padding: 12px;\n        background-color: #333;\n        color: white;\n        font-size: 10px;\n        font-family: Arial;\n      }\n      .CodeMirror.cm-s-default{\n        font-size: 9px;\n        resize: vertical;\n      }\n      .normal {\n        font-family: Arial;\n        font-size: 10px;\n      }\n      table.tabla_de_titulo {\n        width: 100%;\n      }\n      table.tabla_de_titulo td {\n\n      }\n      td.celda_de_titulo {\n        width: 100%;\n      }\n      .display_block {\n        display: block;\n      }\n      .display_none {\n        display: none;\n      }\n    </style>\n</head>","body":"<body><div id=\"app\"></div></body>"}}
 
+window.PaginaDeTesterPersonalizado = Castelog.metodos.un_componente_vue2("PaginaDeTesterPersonalizado",
+  "<div class=\"PaginaDeTesterPersonalizado Component\">"
+ + "    <div class=\"normal\">"
+ + "      Back to <router-link to=\"/\">Home</router-link>."
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+};},
+  null);
 window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
   "<div class=\"PaginaDeInicio Component\">"
  + "    <div class=\"normal\">"
  + "      Back to <a href=\"https://github.com/allnulled/ui-script-language\">Github project</a>."
+ + "    </div>"
+ + "    <ul>"
+ + "      <li>"
+ + "        <router-link to=\"/tester1\">Go to tester</router-link>"
+ + "      </li>"
+ + "      <li>"
+ + "        <router-link to=\"/tester2\">Go to tester 2</router-link>"
+ + "      </li>"
+ + "    </ul>"
+ + "  </div>",
+  function(component) {return { data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+};},
+  null);
+window.PaginaDeTester = Castelog.metodos.un_componente_vue2("PaginaDeTester",
+  "<div class=\"PaginaDeTester Component\">"
+ + "    <div class=\"normal\">"
+ + "      Back to <router-link to=\"/\">Home</router-link>."
  + "    </div>"
  + "    <h5>"
  + "      <table class=\"tabla_de_titulo\">"
@@ -356,6 +398,18 @@ mounted() {
   [ { path:"/",
 name:"PaginaDeInicio",
 component:PaginaDeInicio,
+props:{ 
+}
+},
+{ path:"/tester1",
+name:"PaginaDeTester",
+component:PaginaDeTester,
+props:{ 
+}
+},
+{ path:"/tester2",
+name:"PaginaDeTesterPersonalizado",
+component:PaginaDeTesterPersonalizado,
 props:{ 
 }
 } ],

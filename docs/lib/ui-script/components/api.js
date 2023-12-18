@@ -28,12 +28,8 @@ const xwindowfooter = require("./xwindowfooter/xwindowfooter.js");
 const xwindowfooteritem = require("./xwindowfooteritem/xwindowfooteritem.js");
 const xwindowtitle = require("./xwindowtitle/xwindowtitle.js");
 const xstatic = require("./xstatic/xstatic.js");
-const ast_parser = require("../../../../src/ui-script.parser.ast.js");
-const parser = require("../../../../src/ui-script.parser.js");
 
 Object.assign(window.uiscript_api, {
-    ast: { parser: ast_parser },
-    parser,
     components: window.uiscript_components
 });
 

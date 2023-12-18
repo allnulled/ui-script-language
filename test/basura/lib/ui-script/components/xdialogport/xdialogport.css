@@ -6,6 +6,7 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
 }
 .xdialogport > div > table {
     width: 100%;
@@ -18,10 +19,14 @@
     text-align: center;
 }
 .xdialogport > div > table > tbody > tr > td > div {
+    display: inline-block;
     text-align: left;
+    max-width: 400px;
+    width: 100%;
 }
-.xdialogport > div > table > tbody > tr > td > div > .xwindow {}
+.xdialogport > div > table > tbody > tr > td > div > .xwindow {
+}
 .xdialogport > div > table > tbody > tr > td > div > .xwindow > .xwindowbody {
-    min-height: 80px;
+    min-height: auto;
     overflow: scroll;
 }
